@@ -1,0 +1,122 @@
+<view class=" topblock  "
+  style="background-image:url({{uploadpath}}resource/{{res.bg_home}});background-size:100% 100%">
+
+  <view class="" style="padding:44rpx">
+
+    <image src="{{uploadpath}}resource/{{res.logo2}}" class="logo  "></image>
+
+    <view class="txt-white txt-bold f-62  ">Hi {{memberinfo.name}},</view>
+    <view class="txt-white h5  ">Need some help today?</view>
+
+    <view class="search flex-row flex-center" bindtap="navtoPage" data-page="search">
+
+      <image src="{{uploadpath}}resource/{{res.search}}" class="icon-15"></image>
+      <view class="txt-gray h5 margin-left-10">请输入搜索内容</view>
+
+    </view>
+
+  </view>
+
+</view>
+
+<!-- <navigator target="miniProgram" open-type="navigate" app-id="wx78e037c6347dd56e" path="pages/index" extra-data="{{extraData}}" version="release"> 
+
+ </navigator> -->
+
+<view class="flex-row padding-30 ">
+
+  <view class="text-center">
+    <image src="{{uploadpath}}resource/{{res.zyzx}}" class="img2" bindtap="reLaunch" data-page="yuyue"></image>
+    <image src="{{uploadpath}}resource/{{res.zyxx}}" class="img1 margin-top-30" bindtap="navtoPage"
+      data-page="xingxiang"></image>
+  </view>
+
+  <view class="flex-1"></view>
+
+  <view class="text-center">
+    <image src="{{uploadpath}}resource/{{res.zycp}}" class="img1" bindtap="bindtoother"  ></image>
+    <image src="{{uploadpath}}resource/{{res.hdyy}}" class="img2 margin-top-30" bindtap="reLaunch" data-page="activity">
+    </image>
+  </view>
+
+
+</view>
+
+
+<view class="padding-30">
+
+  <view class="flex-row flex-center">
+    <image src="{{uploadpath}}resource/{{res.dian}}" class="icon-17"></image>
+    <view class="f-34 flex-1 margin-left-10 txt-bold">咨询师介绍</view>
+    <view class="f-26" bindtap="navtoPage" data-page="zixunshi"  data-param="type=A">查看更多</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more padding-left-10" bindtap="navtoPage"
+      data-page="zixunshi" data-param="type=A"></image>
+  </view>
+
+  <swiper class="imageContainer margin-top" bindchange="handleChange"  indicator-dots circular autoplay>
+    <block wx:for="{{tutorlist}}" wx:key="{{index}}" wx:if="{{item.tutor_status=='A'}}">
+      <swiper-item class="item " >
+        <!-- <image class="itemImg  "  src="{{uploadpath}}indexbanner/{{item.img}}">
+        </image> -->
+        <view class="itemImg flex-row flex-center padding-left-30 " style="background-image:url({{uploadpath}}resource/{{res.card}})">
+          <view class="flex-1 ">
+            <view class="h5 txt-bold">{{item.name}}</view>
+            <view class="h6 margin-top-20 chaochu3">{{item.summary}}</view>
+          </view>
+          <image src="{{uploadpath}}tutor/{{item.photo2}}" class="photo"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+  <view class="flex-row flex-center margin-top">
+    <image src="{{uploadpath}}resource/{{res.dian}}" class="icon-17"></image>
+    <view class="f-34 flex-1 margin-left-10 txt-bold">朋辈咨询PCAs</view>
+    <view class="f-26" bindtap="navtoPage" data-page="zixunshi" data-param="type=B">查看更多</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more padding-left-10" bindtap="navtoPage"
+      data-page="zixunshi"  data-param="type=B"></image>
+  </view>
+
+  <swiper class="imageContainer margin-top" bindchange="handleChange"  indicator-dots circular autoplay>
+    <block wx:for="{{tutorlist}}" wx:key="{{index}}" wx:if="{{item.tutor_status=='B'}}">
+      <swiper-item class="item " >
+        <!-- <image class="itemImg  "  src="{{uploadpath}}indexbanner/{{item.img}}">
+        </image> -->
+        <view class="itemImg flex-row flex-center padding-left-30 " style="background-image:url({{uploadpath}}resource/{{res.card}})">
+          <view class="flex-1 ">
+            <view class="h5 txt-bold">{{item.name}}</view>
+            <view class="h6 margin-top-20 chaochu3">{{item.summary}}</view>
+          </view>
+          <image src="{{uploadpath}}tutor/{{item.photo2}}" mode="aspectFit"  class="photo"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="flex-row flex-center margin-top">
+    <image src="{{uploadpath}}resource/{{res.dian}}" class="icon-17"></image>
+    <view class="f-34 flex-1 margin-left-10 txt-bold">活动推荐</view>
+    <view class="f-26" bindtap="reLaunch" data-page="activity">查看更多</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" bindtap="reLaunch" data-page="activity"
+      class="more margin-left-10"></image>
+  </view>
+
+  <view class="wdyy margin-top">
+    <scroll-view scroll-x class="scroll">
+      <view class="scrolly-block" wx:for="{{activitylist}}" wx:key='s' bindtap="navtoPage" data-page="activityinfo"
+        data-param='id={{item.id}}'>
+        <image src="{{uploadpath}}activity/{{item.img1}}" class="topimg" mode="scaleToFill"></image>
+
+        <view class="padding-10  ">
+          <view class="txt-bold f-30 chaochu2">{{item.name}}</view>
+          <view class="h7 txt-gray margin-top-5">{{item.activity_time}}</view>
+        </view>
+
+      </view>
+    </scroll-view>
+  </view>
+
+  <view style=""></view>
+
+</view>

@@ -1,0 +1,11 @@
+/* pages/guanyuwomen/guanyuwomen.wxss */
+Page{
+  background: #F1F5FA;
+}
+.img{
+  width: 440rpx;
+  height: 80rpx;
+}
+.bottom{
+  border-bottom: 2rpx solid #F1F5FA;
+}

@@ -1,0 +1,113 @@
+<view class="flex-row flex-center padding-20 bg-white">
+  <image src="{{uploadpath}}tutor/{{tutorinfo.photo}}" class="photo radius-50 margin-left-30" mode="aspectFill"></image>
+  <view class="f-30 txt-bold margin-left-20">{{tutorinfo.name}}老师您好!</view>
+</view>
+
+<view class="text-center  padding-30">
+  <view class="flex-row chooseblock">
+    <view class="flex-1 left text-center f-30  {{type=='B'?'xuanzhong txt-bold':'bg-white'}}" bindtap="choose" id="B">
+      待咨询</view>
+
+    <view class="flex-1 right text-center f-30  {{type=='A'?'xuanzhong txt-bold':'bg-white'}}" bindtap="choose" id="A">
+      已完成</view>
+
+  </view>
+</view>
+
+
+<view class="order" wx:for="{{list}}" wx:key='s' wx:if="{{type=='A'}}">
+
+  <view class="flex-row  ">
+    <view class="txt-primary txt-bold f-30 flex-1">预约号:{{item.yuyueno}}</view>
+ 
+ 
+    <view class="flex-row flex-center fankui2"  bindtap="navtoPage" data-page="yuyueinfo" data-param="id={{item.id}}">
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{res.dsfk}}" class="icon-15"></image>
+      <view class="h6 margin-left-10 txt-primary">详情</view>
+      <view class="flex-1"></view>
+    </view>
+
+  </view>
+
+  <view class="flex-row flex-center margin-top ">
+    <image src="{{uploadpath}}resource/{{res.riqi}}" class="icon-15"></image>
+    <view class="padding-20 bg-gray margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.yuyueshijian}}</view>
+  </view>
+
+  <view class="flex-row flex-center margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.ming}}" class="icon-15"></image>
+    <view class="padding-20 bg-name  margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.name}}</view>
+  </view>
+
+ 
+    <view class="h5  margin-top-20">反馈内容: </view>
+    <view wx:if="{{item.yuyue_status!='D'}}" class="padding-20 bg-name    margin-top-20 radius-10 h6 flex-1 txt-purple">{{item.fankui}}</view>
+    <view wx:if="{{item.yuyue_status=='D'}}" class="padding-20 bg-name    margin-top-20 radius-10 h6 flex-1 txt-purple">{{item.yuanyin}}</view>
+    
+ 
+  <!-- <view class="flex-row flex-center ">
+    <view class="bg-left txt-left txt-bold btn text-center"  id="{{item.id}}"
+      bindtap="bindcancel" >缺席</view>
+      <view class="flex-1"></view>
+    <view class="bg-purple txt-white btn text-center"   bindtap="pinggu">咨询反馈</view>
+  </view> -->
+
+  <view class="flex-row flex-column">
+    <view class="bg-purple txt-white btn text-center"  
+      bindtap="navtoPage" data-page="pingguinfo"  data-param="id={{item.id}}" wx:if="{{item.yuyue_status!='D'}}">查看评估</view> 
+  </view>
+
+</view>
+
+<view class="text-center margin-top-60" wx:if="{{list.length==0&&type=='A'}}">
+      <image src="{{uploadpath}}resource/{{res.not_tutor}}" class="notdata"></image>
+      <view class="txt-primary">暂无咨询</view>
+  </view>
+
+<view class="order" wx:for="{{list2}}" wx:key='s' wx:if="{{type=='B'}}">
+
+<view class="flex-row  ">
+  <view class="txt-primary txt-bold f-30 flex-1">预约号:{{item.yuyueno}}</view>
+ 
+  <view class="flex-row flex-center fankui2"  bindtap="navtoPage" data-page="yuyueinfo" data-param="id={{item.id}}">
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{res.dsfk}}" class="icon-15"></image>
+      <view class="h6 margin-left-10 txt-primary">详情</view>
+      <view class="flex-1"></view>
+    </view>
+</view>
+
+<view class="flex-row flex-center margin-top ">
+  <image src="{{uploadpath}}resource/{{res.riqi}}" class="icon-15"></image>
+  <view class="padding-20 bg-gray margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.yuyueshijian}}</view>
+</view>
+
+<view class="flex-row flex-center margin-top-20">
+  <image src="{{uploadpath}}resource/{{res.ming}}" class="icon-15"></image>
+  <view class="padding-20 bg-name  margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.name}}</view>
+</view>
+
+<view class="flex-row flex-center " wx:if="{{item.yuyue_status=='A'}}">
+  <view class="bg-left txt-left txt-bold btn text-center"  id="{{item.id}}"
+    bindtap="quexi" >缺席</view>
+    <view class="flex-1"></view>
+  <view class="bg-purple txt-white btn text-center"   bindtap="navtoPage" data-page="fankui" data-param="id={{item.id}}">咨询反馈</view>
+</view>
+<!-- wx:if="{{yuyue_status=='E'}}" -->
+<view class="flex-row flex-center " wx:if="{{item.yuyue_status=='E'}}">
+    <view class="flex-1"></view>
+  <view class="bg-purple txt-white btn text-center"  id="{{item.id}}"
+    bindtap="querenyuyue" >确认预约</view> 
+    <view class="flex-1"></view>
+</view>
+
+</view>
+
+<view class="text-center margin-top-60" wx:if="{{list2.length==0&&type=='B'}}">
+      <image src="{{uploadpath}}resource/{{res.not_tutor}}" class="notdata"></image>
+      <view class="txt-primary">暂无咨询</view>
+  </view>
+
+
+

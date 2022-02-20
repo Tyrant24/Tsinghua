@@ -1,0 +1,46 @@
+<!--pages/myinformation/myinformation.wxml-->
+
+<view class="text-center bg-white">
+  <image src="{{uploadpath}}resource/{{res.shili}}" class="img margin-top"></image>
+  <view class="txt-primary margin-bottom-20  txt-bold">正装示例</view>
+  <view class="height-40"></view>
+</view>
+
+<view class="flex-row flex-center block">
+  <view class="h5 flex-1">头像</view>
+  <image src="{{uploadpath}}resource/{{res.shili}}" wx:if="{{headimg==''}}" mode="aspectFill" class="headimg radius-50" bindtap="uploadimg"></image> 
+  <image src="{{uploadpath}}member/{{headimg}}" wx:if="{{headimg!=''}}" mode="aspectFill" class="headimg radius-50" bindtap="uploadimg"></image>
+</view>
+
+<view class="block">
+  <view class="h5">姓名</view>
+  <input type="text" class="padding-30 bg-gray" disabled  bindinput="bindname" placeholder="请输入姓名" value="{{name}}"></input>
+
+  <view class="h5 margin-top-10">性别</view>
+  <picker   bindchange="bindsex" range="{{genderlist}}" range-key="name"  disabled  >
+    <input type="text" class="padding-30 bg-gray margin-top-10" placeholder="请选择性别" disabled bindinput="bindsex" value="{{sex_name}}"></input>
+  	</picker>
+
+  <view class="h5 margin-top-10">学号</view>
+  <input type="text" disabled class="padding-30 bg-gray margin-top-10" bindinput="bindstudentid" value="{{studentid}}"></input>
+
+  <view class="h5 margin-top-10">班级</view>
+  <input type="text" class="padding-30 bg-gray margin-top-10" placeholder="请输入班级" bindinput="bindclass" value="{{class}}"></input>
+
+  <view class="h5 margin-top-10">专业</view>
+  <input type="text" disabled   class="padding-30 bg-gray margin-top-10" placeholder="请输入专业名称" bindinput="bindmajor" value="{{major}}"></input>
+
+  <view class="h5 margin-top-10">电话</view>
+  <input type="text" class="padding-30 bg-gray margin-top-10" placeholder="请输入电话号码" bindinput="bindmobile" value="{{mobile}}"></input>
+
+  <view class="h5 margin-top-10">邮箱</view>
+  <input type="text" class="padding-30 bg-gray margin-top-10" placeholder="请输入电子邮箱" bindinput="bindemail" value="{{email}}"></input>
+ 
+
+</view>
+
+
+<button class="bg-purple txt-white btn" hover-class="btn2" bindtap="submit" >提交</button>
+<view class="height-70"></view>
+
+ 

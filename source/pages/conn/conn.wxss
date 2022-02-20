@@ -1,0 +1,65 @@
+/* pages/conn/conn.wxss */
+.view{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.view-sp-area{
+  margin: 0 auto;
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.row{
+  width: 130rpx;
+  height:130rpx;
+  margin-left:48rpx;
+  opacity:0.3;
+}
+.row-hover{
+  width: 130rpx;
+  height:130rpx;
+  margin-left:48rpx;
+  opacity:1;
+}
+.we{
+   font-size:18px;
+   color: rgb(240, 165, 26);
+   text-align: center;
+}
+/*.qe{
+  background-color:#feabce;
+}*/
+.ai{
+  margin-left:15px; 
+}
+.ai-hover{
+  color:rgb(224, 67, 28);
+}
+.bi{
+ height:98rpx;
+ width: 250rpx;
+ color: white;
+ background-color: rgb(125, 209, 125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.bi-hover{
+  background-color: rgb(65, 181, 235);
+}
+.rt{
+  font-size: 50rpx;
+  text-align: center;
+}
+
+
+  .bg-img{
+  position: fixed;
+  z-index: 10;
+  width: 100%; 
+  top: 0;
+  bottom: 0;
+  background: #fff3eb;
+  
+}

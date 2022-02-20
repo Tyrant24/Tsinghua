@@ -1,0 +1,9 @@
+/* pages/wodezulin/wodezulin.wxss */
+Page {
+  background: #F1F5FA;
+}
+
+.bg-input{
+  background: #F3F5F9;
+}
+ 

@@ -1,0 +1,55 @@
+<!--pages/login/login.wxml-->
+<view class="allpage" style="background-image:url({{uploadpath}}resource/{{res.bg_login}});background-size:100% 100%">
+
+  <!-- <view class="  topblock">
+    <view class="height-100"></view>
+    <view class="flex-row flex-column">
+      <image src="{{uploadpath}}resource/{{res.logo}}" class="logo"></image>
+    </view>
+  </view> -->
+
+  <view class="block">
+
+    <view class="flex-row flex-column">
+      <image src="{{uploadpath}}resource/{{res.logo}}" class="logo"></image>
+    </view>
+
+    <view class="height-118"></view>
+
+    <view class="margin-40  under ">
+
+      <view class="padding-40">
+        <view class="margin-top-20 margin-left-30">
+          <view class="h5">学号</view>
+          <input bindinput="bindstudentid" type="text" class="margin-top-20  padding-bottom-20 input" placeholder="请输入学号"
+            placeholder-class="txt-purple h5"></input>
+        </view>
+
+        <view class="margin-top  margin-left-30">
+          <view class="h5">密码</view>
+          <view class="flex-row flex-center margin-top-20 input">
+
+            <input bindinput="bindpassword" type="text" password="{{show=='A'}}" placeholder="请输入密码" placeholder-class="txt-purple h5"
+            class=" flex-1  "></input>
+            
+            <image src="{{uploadpath}}resource/{{res.yincang}}" wx:if="{{show=='A'}}" bindtap="showpassword" id="B" class="icon-eye  "></image>
+            <image src="{{uploadpath}}resource/{{res.xianshi}}"  wx:if="{{show=='B'}}" bindtap="showpassword" id="A" class="icon-eye  "></image>
+          
+          </view>
+        
+        </view>
+      </view>
+
+      <view class="flex-row flex-center padding-40 bg-purple margin-top-20" bindtap="submit">
+        <view class="txt-bold txt-white flex-1  margin-left-30">立即登录</view>
+        <image src="{{uploadpath}}resource/{{res.to}}" class="icon"></image>
+      </view>
+
+
+
+    </view>
+
+
+  </view>
+
+</view>

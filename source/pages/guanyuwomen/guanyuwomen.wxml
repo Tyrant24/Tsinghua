@@ -1,0 +1,29 @@
+<!--pages/guanyuwomen/guanyuwomen.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="text-center bg-white" style="padding:128rpx 60rpx 0 60rpx">
+
+  <image src="{{uploadpath}}aboutus/{{info.cover}}" class="img"></image>
+
+  <view class="margin-top-20 " style="margin-top:108rpx">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" style="  font-size: 28rpx;"/>
+  </view>
+
+</view>
+
+<view class="flex-row flex-center padding-30 bg-white bottom">
+  <view class="txt-bold flex-1 f-30">官方微信</view>
+  <view class="f-30 txt-gray">{{info.weixin}}</view>
+</view>
+<view class="flex-row flex-center padding-30 bg-white  bottom">
+  <view class="txt-bold flex-1 f-30">邮箱</view>
+  <view class="f-30 txt-gray">{{info.weibo}}</view>
+</view>
+<view class="flex-row flex-center padding-30 bg-white  bottom">
+  <view class="txt-bold flex-1 f-30">地址</view>
+  <view class="f-30 txt-gray">{{info.wangzhan}}</view>
+</view>
+<view class="flex-row flex-center padding-30 bg-white bottom">
+  <view class="txt-bold flex-1 f-30">联系方式</view>
+  <view class="f-30 txt-gray">{{info.lianxiwomen}}</view>
+</view>

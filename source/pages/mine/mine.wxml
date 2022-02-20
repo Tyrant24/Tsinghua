@@ -1,0 +1,96 @@
+<!--pages/mine/mine.wxml-->
+<!-- <view class="padding-20 txt-primary" bindtap="navtoPage" data-page="myactivity"  >
+我的活动
+</view>
+
+<view class="padding-20 txt-primary" bindtap="navtoPage" data-page="changepassword"  >
+修改密码
+</view> -->
+
+
+<view class=" topblock text-center"
+  style="background-image:url({{uploadpath}}resource/{{res.bg_mine}});background-size:100% 100%">
+  <view style="height:148rpx"></view>
+  <view class="photoblock">
+    <image src="{{uploadpath}}resource/{{res.photo_null}}" mode="aspectFill" class="photo radius-50" wx:if="{{memberinfo.headimg==''}}"></image>
+    <image src="{{uploadpath}}member/{{memberinfo.headimg}}" mode="aspectFill" class="photo radius-50" wx:if="{{memberinfo.headimg!=''}}"></image>
+
+    <image src="{{uploadpath}}resource/{{res.man}}" class="gender" wx:if="{{memberinfo.gender=='A'}}"></image>
+    <image src="{{uploadpath}}resource/{{res.woman}}" class="gender" wx:if="{{memberinfo.gender=='B'}}"></image>
+  </view>
+
+  <view class="flex-row flex-center margin-top">
+    <view class="flex-1"></view>
+    <view class="txt-white txt-bold f-36" bindtap="navtoPage" data-page="myinformation">{{memberinfo.name}}·{{memberinfo.major}}</view>
+    <image src="{{uploadpath}}resource/{{res.bianji}}" bindtap="navtoPage" data-page="myinformation" class="icon-15 margin-left-20"></image>
+    <view class="flex-1"></view>
+  </view>
+
+  <!-- <view class="txt-white h5 margin-top-20">{{memberinfo.birthday}}</view> -->
+
+</view>
+
+<view class="flex-row flex-center padding-30">
+  <view class="tiao"></view>
+  <view class="  txt-bold f-34 flex-1 margin-left-10">我的咨询预约</view>
+
+  <view class="txt-gray f-26" bindtap="navtoPage" data-page="wodeyueyu">查看全部</view>
+  <image  bindtap="navtoPage" data-page="wodeyueyu" src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+</view>
+
+<view class="wdyy">
+  <scroll-view scroll-x class="scroll" style="height:{{list.length==0?0:200}}rpx ">
+    <view class="scrolly-block" wx:for="{{list}}" wx:key='s'>
+      <view class="txt-bold f-30">{{item.tutor_name}}</view>
+      <view class="h7 txt-gray margin-top-5">{{item.yuyueshijian}}</view>
+      <view class="h6 txt-gray margin-top-10">· {{item.yuyue_status_name}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="underblcok">
+
+  <view class="flex-row flex-center  " bindtap="navtoPage" data-page="myactivity" data-param="">
+    <image src="{{uploadpath}}resource/{{res.wdhd}}" class="icon"></image>
+    <view class="txt-bold f-30  margin-left-20">我的活动</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum>0}}" class="icon-15 margin-left-10"></image>
+    <view class="flex-1"></view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+  </view>
+
+  <view class="flex-row flex-center  margin-top-60 " bindtap="navtoPage" data-page="wodezulin" data-param="">
+    <image src="{{uploadpath}}resource/{{res.yimaojian}}" class="icon"></image>
+    <view class="txt-bold f-30  margin-left-20">我的衣帽间</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}"  wx:if="{{messagenum2>0}}" class="icon-15 margin-left-10"></image>
+    <view class="flex-1"></view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+  </view>
+
+  <view class="flex-row flex-center  margin-top-60 " bindtap="navtoPage" data-page="changepassword" data-param="">
+    <image src="{{uploadpath}}resource/{{res.gaimima}}" class="icon"></image>
+    <view class="txt-bold f-30 flex-1 margin-left-20">修改密码</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+  </view>
+
+  <view class="flex-row flex-center  margin-top-60 " bindtap="navtoPage" data-page="fankui" data-param="">
+    <image src="{{uploadpath}}resource/{{res.fankui}}" class="icon"></image>
+    <view class="txt-bold f-30 flex-1 margin-left-20">意见反馈</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+  </view>
+
+  <view class="flex-row flex-center  margin-top-60 " bindtap="navtoPage" data-page="guanyuwomen" data-param="">
+    <image src="{{uploadpath}}resource/{{res.gywm}}" class="icon"></image>
+    <view class="txt-bold f-30 flex-1 margin-left-20">关于我们</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+  </view>
+  
+
+  <view class="flex-row flex-center  margin-top-60 " bindtap="tuichu"  >
+    <image src="{{uploadpath}}resource/{{res.tuichu}}" class="icon"></image>
+    <view class="txt-bold f-30 flex-1 margin-left-20">退出登录</view>
+    <image src="{{uploadpath}}resource/{{res.gengduo}}" class="more margin-left-10"></image>
+  </view>
+
+
+
+</view>

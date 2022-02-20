@@ -1,0 +1,8 @@
+/* pages/daoshifankui/daoshifankui.wxss */
+Page {
+  background: #F1F5FA;
+}
+.photo{
+  width: 98rpx;
+  height: 98rpx;
+}

@@ -1,0 +1,53 @@
+<!--pages/activity/activity.wxml-->
+
+<view class="flex-row flex-center margin-left-40 margin-top">
+  <view class="tiao"></view>
+  <view class="txt-bold margin-left-10">最新活动</view>
+</view>
+
+<view class="block" wx:for="{{activitylist}}" wx:key='s' wx:if="{{item.activity_status!='C'}}" bindtap="navtoPage" data-page="activityinfo" data-param='id={{item.id}}'>
+ 
+  <image src="{{uploadpath}}activity/{{item.img1}}" class="img" mode="widthFix"></image>
+
+  <view class="padding-20">
+    <view class="txt-bold f-30   chaochu">{{item.name}}</view>
+    <view class="h6 txt-purple margin-top-10">{{item.end_time}}报名截止</view>
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.start_time}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-red">{{item.activity_time}}</view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.address}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-purple">{{item.address}}</view>
+    </view>
+
+
+  </view>
+</view>
+
+
+<view class="flex-row flex-center margin-left-40 margin-top">
+  <view class="tiao"></view>
+  <view class="txt-bold margin-left-10">往期活动</view>
+</view>
+
+<view class="block" wx:for="{{activitylist}}" wx:key='s' wx:if="{{item.activity_status=='C'}}" bindtap="navtoPage" data-page="activityinfo" data-param='id={{item.id}}'>
+  <image src="{{uploadpath}}activity/{{item.img1}}" class="img"  mode="widthFix"></image>
+
+  <view class="padding-20">
+    <view class="txt-bold f-30   chaochu">{{item.name}}</view>
+    <view class="h6 txt-purple margin-top-10">{{item.end_time}}报名截止</view>
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.start_time}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-red">{{item.activity_time}}</view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.address}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-purple">{{item.address}}</view>
+    </view>
+
+
+  </view>
+</view>

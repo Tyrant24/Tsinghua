@@ -1,0 +1,61 @@
+<!--pages/yuyue/yuyue.wxml-->
+<view class="toptitle ">
+  <view class="text-center txt-white f-36">咨询</view>
+
+</view>
+
+
+<view class="bg-rili">
+
+  <view class="container"> 
+
+    <calendar id="calendar" bindload="handleCalendarLoad" binddatechange="handleCalendarDateChange"
+      bindrangechange="handleCalendarRangeChange" bindviewchange="handleCalendarPanelViewChange" _position="fixed"
+      _top="0" _markers="{{markers}}">
+    </calendar>
+
+
+    <view style="height:{{height}}rpx"></view>
+
+    <view class="text-center margin-top-60" wx:if="{{list.length==0}}">
+      <image src="{{uploadpath}}resource/{{res.not_tutor}}" class="notdata"></image>
+      <view class="txt-primary">当日无导师</view>
+    </view>
+ 
+    <view class="card  " wx:for="{{list}}" wx:key='s'>
+      <view class="flex-row flex-center padding-30">
+        <image src="{{uploadpath}}tutor/{{item.tutor_photo}}" class="img radius-50" mode="aspectFill"></image>
+        <view class="f-30 margin-left-10">{{item.tutor_name}}</view>
+      </view>
+
+      <view class="h6   padding-30">{{item.tutor_summary}}</view>
+
+      <view class="flex-row flex-center   margin-left-30 margin-top-20">
+        <view class="tiao"></view>
+        <view class="h5 margin-left-10">可预约时间</view>
+      </view>
+
+      <view class="flex-row flex-wrap margin-top-20">
+        <view wx:for="{{item.worktimelist}}" wx:for-item="work" bindtap="choosetime"
+          class="timeblock h5 {{chosseid==item.id+'_'+work.id?'choose':''}}" id="{{work.id}}" data-tutorid="{{item.id}}" data-tutor_id="{{item.tutor_id}}"
+          data-time="{{work.name}}" wx:key="w">{{work.name}}</view>
+      </view>
+
+      <view class="flex-row flex-column " wx:if="{{nowtutorid!=item.tutor_id||btnstyle==true}}">
+        <view class=" txt-white btn text-center {{close==false?'bg-purple':'bg-primary'}}" hover-class="{{close==false?'btn2':''}}" bindtap="bindyuyue"
+          data-tutor_id="{{item.tutor_id}}" data-date="{{item.workdate}}">预约</view>
+      </view>
+ 
+      <view class="flex-row flex-column " wx:if="{{nowtutorid==item.tutor_id&&btnstyle==false}}">
+        <view class=" txt-white btn text-center bg-primary" >已预约</view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
+
+
+</view>

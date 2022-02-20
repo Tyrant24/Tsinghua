@@ -1,0 +1,16 @@
+/* pages/fankui/fankui.wxss */
+Page {
+  background: #F1F5FA;
+}
+.photo{
+  width: 98rpx;
+  height: 98rpx;
+}
+.btn {
+  width: 570rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  margin-top: 54rpx;
+  margin-bottom: 54rpx;
+  border-radius: 56rpx;
+}

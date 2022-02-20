@@ -1,0 +1,4 @@
+<!--pages/chose/chose.wxml-->
+<view class='ss'>您的专家已经选择好了为您设计的名字</view>
+<button class='bi' hover-class="bi-hover" bindtap='onCon'>揭晓答案</button>
+<view class='sd'>我们命名的宝宝</view>

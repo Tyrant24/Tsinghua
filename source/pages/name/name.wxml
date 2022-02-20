@@ -1,0 +1,29 @@
+<!--pages/name/name.wxml-->
+<view class='bg' style='background-image:url({{uploadpath}}resource/{{res.background}});background-size:100% 100%'>
+<view class='flex-row flex-column '>
+  <view class='ss margin-top-40'>您的专家已经选择好了为您设计的名字</view>
+  <view style='background-image:url({{uploadpath}}resource/{{res.bar}});background-size:100% 100%' class=' image flex-row flex-center'>
+    <view class='flex-1'></view>
+    <view class='flex-row flex-column'>
+
+      <view class='bi' wx:if='{{asd==true}}' bindtap='onCon'>点击揭晓答案</view>
+
+      <view wx:if='{{asd==false}}'>
+        <view wx:for="{{boybabylist}}" wx:key="ondex"></view>
+        <view wx:for="{{girlbabylist}}" wx:key="oxdex"></view>
+        <view class='ci txt-bold'>{{name.English}}</view>
+        <view class='ci txt-bold'>{{name.China}}</view>
+      </view>
+    </view>
+    <view class='flex-1'></view>
+  </view>
+  <!-- <image src='{{uploadpath}}resource/{{res.bar}}' class="image" mode='widthFix' /> -->
+
+  <!-- <button class='bi text-center' wx:if='{{show==1}}' disabled='{{asd}}' hover-class="bi-hover" bindtap='onCon'>揭晓答案</button> -->
+
+  <view class='sd'>我们命名的宝宝人数</view>
+  <view class='yt txt-bold  '>{{instinfo.quantity}}</view>
+
+  <view class='btn txt-bold text-center h4' wx:if='{{show==1}}' bindtap='onDon'>重新起名</view>
+</view>
+</view>

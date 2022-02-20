@@ -1,0 +1,35 @@
+/* pages/pinggu/pinggu.wxss */
+Page {
+  background: #F1F5FA;
+}
+
+.padding{
+  padding: 16rpx 30rpx 16rpx 30rpx;
+}
+
+.photo{
+  width: 98rpx;
+  height: 98rpx;
+}
+input {
+  color: #4F5163;
+  background: #F3F5F9;
+  font-size: 28rpx;
+}
+
+.bg_input {
+  background: #F3F5F9;
+}
+
+.radioblock {
+  border: 2rpx solid #DFE3EA;
+  padding: 0 32rpx 32rpx 32rpx;
+}
+.btn {
+  width: 570rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  margin-top: 54rpx;
+  margin-bottom: 54rpx;
+  border-radius: 56rpx;
+}

@@ -1,0 +1,102 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "修改密码",
+          "pathName": "pages/changepassword/changepassword",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动列表",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动详情",
+          "pathName": "pages/activityinfo/activityinfo",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/home/home",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "个人资料",
+          "pathName": "pages/myinformation/myinformation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的活动",
+          "pathName": "pages/myactivity/myactivity",
+          "query": "undefined=undefined",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "预约",
+          "pathName": "pages/yuyue/yuyue",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "测试",
+          "pathName": "pages/ceshi/ceshi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "预约详情",
+          "pathName": "pages/yuyueinfo/yuyueinfo",
+          "query": "undefined=undefined",
+          "scene": null
+        },
+        {
+          "name": "我的预约",
+          "pathName": "pages/wodeyueyu/wodeyueyu",
+          "query": "undefined=undefined",
+          "scene": null
+        },
+        {
+          "name": "咨询师",
+          "pathName": "pages/zixunshi/zixunshi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

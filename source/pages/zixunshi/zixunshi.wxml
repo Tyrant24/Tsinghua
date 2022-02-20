@@ -1,0 +1,22 @@
+<!--pages/zixunshi/zixunshi.wxml-->
+<view class="tutor" wx:for="{{tutorlist}}" wx:key='s' >
+  <view class=" flex-row ">
+    <image src="{{uploadpath}}tutor/{{item.photo}}" class="photo" mode="aspectFill"></image>
+
+    <view class="margin-left-24 flex-1">
+      <view class="f-30 txt-bold">{{item.name}}</view>
+      <view class="h6  margin-top-10">{{item.jianjie}}</view>
+
+      <view  class="h6  margin-top-5" wx:if="{{item.tutor_status=='B'}}">在校经历：{{item.jingli}}</view>
+      <!-- <view class="flex-row flex-wrap">
+        <view class="label margin-top-10 margin-right-10 h6" style="color:#D77069" wx:for="{{item.label}}">{{item.name}}</view>
+      </view> -->
+    </view>
+  </view>
+
+  <view class="lingyu h5 txt-bold margin-top-60">{{item.tutor_status=='B'?'毕业去向':'擅长领域'}}</view>
+
+  <view class="padding-20 h6 bg-gray margin-top-20">{{item.summary}}</view>
+
+
+</view>

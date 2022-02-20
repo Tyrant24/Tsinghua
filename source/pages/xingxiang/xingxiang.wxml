@@ -1,0 +1,166 @@
+<!--pages/xingxiang/xingxiang.wxml-->
+
+<view class="margin-top-20 bg-white padding-30">
+  <view class="flex-row flex-center ">
+    <view class="flex-1"></view>
+    <image src="{{uploadpath}}resource/{{res.left}}" class="icons  margin-right-20"></image>
+    <view class="txt-bold f-34 txt-purple">职场形象工作室</view>
+    <image src="{{uploadpath}}resource/{{res.right}}" class="icons  margin-left-20"></image>
+
+    <view class="flex-1"></view>
+  </view>
+
+  <view class="h5 margin-top-20" style="color:#464646">{{info.gongzuoshi}}</view>
+
+  <view class="margin-top-20">
+
+    <swiper class="swiper" bindchange="handleChange" circular autoplay>
+      <block wx:for="{{indexbanner}}" wx:key="{{index}}">
+        <swiper-item class="item">
+          <image class="itemImg " src="{{uploadpath}}xingxiang/{{item.img}}">
+          </image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+
+
+
+</view>
+
+<view class="margin-30 radius-20 bg-white padding-30">
+  <view class="zulin flex-row flex-center  ">
+    <view class="flex-1"></view>
+    <image src="{{uploadpath}}resource/{{res.zlsm}}" class="icon-zulin"></image>
+    <view class="txt-white margin-left-10 txt-bold">出借说明</view>
+    <view class="flex-1"></view>
+  </view>
+
+  <view class="padding-20 margin-top-20">
+    <view class="flex-row  ">
+      <image src="{{uploadpath}}resource/{{res.fankuai}}" class="icon-10 margin-top-5"></image>
+      <view class="flex-1 h5 margin-left-10">{{info.zulin1}}</view>
+    </view>
+
+    <view class="flex-row  ">
+      <image src="{{uploadpath}}resource/{{res.fankuai}}" class="icon-10 margin-top-5"></image>
+      <view class="flex-1 h5 margin-left-10"> {{info.zulin2}};</view>
+    </view>
+
+  </view>
+
+  <view class="flex-row flex-center padding-15 bg-gray radius-10 margin-top">
+    <image src="{{uploadpath}}resource/{{res.hong}}" class="icon-14"></image>
+    <view class="margin-left-10 h6 flex-1" style="color:#BF5454">{{info.zulin3}}</view>
+  </view>
+
+  <view class="flex-row flex-center padding-15 bg-gray radius-10 margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.zi}}" class="icon-14"></image>
+    <view class="margin-left-10 h6 flex-1" style="color:#8E5396">{{info.zulin4}}</view>
+  </view>
+
+  <view class="flex-row flex-center padding-15 bg-gray radius-10 margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.huang}}" class="icon-14"></image>
+    <view class="margin-left-10 h6 flex-1" style="color:#BE6C1E">{{info.zulin5}}</view>
+  </view>
+
+  <!-- <view class="h5 txt-bold margin-top"> {{info.zulin6}}</view> -->
+
+</view>
+
+<view class="flex-row flex-center padding-left-30 margin-top">
+  <view class="shu"></view>
+  <view class="margin-left-10 txt-bold">出借申请</view>
+</view>
+
+
+<view class="padding-30 bg-white  margin-top">
+
+  <view class="">性别</view>
+  <view class="flex-row margin-top-20">
+    <view class="flex-1 flex-row flex-center {{gender=='A'?'border':''}} gender" bindtap="bindgender" id="A">
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{gender=='A'?res.choose:res.notchoose}}" class="icon-14"></image>
+      <view class="margin-left-10 h5">男</view>
+      <view class="flex-1"></view>
+    </view>
+    <view style="width:26rpx"></view>
+    <view class="flex-1 flex-row flex-center  gender {{gender=='B'?'border':''}}" bindtap="bindgender" id="B">
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{gender=='B'?res.choose:res.notchoose}}" class="icon-14"></image>
+      <view class="margin-left-10 h5">女</view>
+      <view class="flex-1"></view>
+    </view>
+  </view>
+
+  <view class="margin-top-20">码数</view>
+  <picker range="{{mashulist}}" range-key="name" bindchange="bindmashu">
+    <view class="margin-top-20 flex-row bg-input padding-30">
+      <input value="{{mashu_name}}" type="text" placeholder="请选择" disabled placeholder-class="txt-purple h5"
+        class="txt-purple  flex-1"></input>
+      <image src="{{uploadpath}}resource/{{res.xiala}}" class="icon-15"></image>
+    </view>
+  </picker>
+
+  <view class="margin-top-20">出借开始时间</view>
+  <picker mode="date" value="{{date}}" bindchange="bindstartDateChange">
+    <view class="margin-top-20 flex-row bg-input padding-30">
+      <input value="{{start_date}}" type="text" placeholder="请选择" disabled placeholder-class="txt-purple h5"
+        class="txt-purple  flex-1"></input>
+      <image src="{{uploadpath}}resource/{{res.zulinriqi}}" class="icon-15"></image>
+    </view>
+  </picker>
+
+  <view class="margin-top-20">出借结束时间</view>
+  <picker mode="date" value="{{date}}" bindchange="bindendDateChange">
+    <view class="margin-top-20 flex-row bg-input padding-30">
+      <input value="{{end_date}}" type="text" placeholder="请选择" disabled placeholder-class="txt-purple h5"
+        class="txt-purple  flex-1"></input>
+      <image src="{{uploadpath}}resource/{{res.zulinriqi}}" class="icon-15"></image>
+    </view>
+  </picker>
+
+  <view class="margin-top-20">联系电话</view>
+  <view class="margin-top-20 flex-row bg-input padding-30">
+    <input type="text" placeholder="请填写联系电话" placeholder-class="txt-purple h5" bindinput="mobileinput" class="txt-purple  flex-1"></input>
+    <!-- <image src="{{uploadpath}}resource/{{res.zulinriqi}}" class="icon-15"></image> -->
+  </view>
+
+</view>
+
+<view class="flex-row flex-column ">
+  <view class="bg-purple txt-white btn text-center" bindtap="submit">立即申请</view>
+</view>
+
+
+
+
+
+<view class="overlay" wx:if="{{overlay}}"></view>
+<view class="tishi" wx:if="{{overlay}}">
+
+  <view class="flex-row">
+    <view class="flex-1"></view>
+    <view class="midblock">
+      <view class="top f-36 txt-bold text-center"
+        style="background-image:url({{uploadpath}}resource/{{res.tc}});background-size:100% 100%">提示</view>
+
+      <view class="text-center margin-top">
+        <image src="{{uploadpath}}resource/{{res.chengon}}" class="icon-168 "></image>
+      </view>
+
+      <view class="text-center margin-top-24">预约成功！</view>
+
+      <view class="flex-row " style="margin-top:64rpx">
+        <view class="flex-1"></view>
+        <view class="btn2  txt-bold" bindtap="backHome">返回首页</view>
+        <view class="flex-1"></view>
+      </view>
+
+
+    </view>
+    <view class="flex-1"></view>
+  </view>
+
+</view>

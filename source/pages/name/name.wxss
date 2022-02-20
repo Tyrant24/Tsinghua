@@ -1,0 +1,52 @@
+.ss {
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 20rpx;
+  margin-top: 50rpx;
+  color: rgb(240, 165, 26);
+}
+
+.sd {
+  font-size: 23px;
+  color: rgb(240, 165, 26);
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;      
+}
+
+.image {
+  margin-top: 25rpx;
+  width: 450rpx;
+  height: 450rpx;
+}
+.bi{
+  font-size: 20px;
+  color: #638fee;
+}
+
+.ci {
+  text-align: center;
+  font-size: 50rpx;
+  margin-top: 10rpx;
+}
+
+.btn {
+  width: 350rpx;
+  height: 100rpx;
+  background: #ffcbc1;
+  line-height: 100rpx;
+  color: white;
+  margin-top: 30rpx;
+  border-radius: 20rpx;
+}
+.yt{
+  font-size: 70rpx; 
+}
+/* .bg{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  width: 100%; 
+  
+} */

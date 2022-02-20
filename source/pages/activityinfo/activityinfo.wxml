@@ -1,0 +1,173 @@
+<!--pages/activityinfo/activityinfo.wxml-->
+
+<view class="padding-30 bg-white  ">
+
+  <view class="txt-bold f-30   chaochu">{{info.name}}</view>
+  <view class="h6 txt-purple margin-top-10">{{info.end_time}}报名截止</view>
+
+  <image src="{{uploadpath}}activity/{{info.img1}}" class="img radius-20 margin-top-20" mode="widthFix"></image>
+
+  <view class="">
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.start_time}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-red">{{info.activity_time}}</view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.address}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-purple">{{info.address}}</view>
+    </view>
+
+  </view>
+
+  <view class="h5 margin-top txt-black ">
+    <import src="../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+
+  <!-- <view class="h5 margin-top txt-black">{{info.summary}}</view>  -->
+
+
+  <!-- 预约显示信息 -->
+  <view style="position: relative; padding-top:10rpx" class=" ">
+    <!-- <image src="{{uploadpath}}member/{{memberinfo.headimg}}" class="headimg"></image> -->
+
+    <view class="   radius-20 xinxi">
+<!-- 
+      <view class="top flex-row flex-center">
+        <view style="width:208rpx"></view>
+        <view>
+          <view class="txt-white txt-bold f-30">{{memberinfo.name}}</view>
+          <view class="txt-white h7 margin-top-5">学号：{{memberinfo.studentid}}</view>
+        </view>
+      </view>
+
+      <view class="padding-20">
+        <view class="flex-row flex-center">
+          <image src="{{uploadpath}}resource/{{res.zhuanye}}" class="icon-15"></image>
+          <view class="txt-purple h6 margin-left-10">{{memberinfo.major}}</view>
+        </view>
+
+        <view class="flex-row flex-center margin-top-10">
+          <image src="{{uploadpath}}resource/{{res.email}}" class="icon-15"></image>
+          <view class="txt-purple h6 margin-left-10">{{memberinfo.email}}</view>
+        </view>
+
+        <view class="flex-row flex-center margin-top-10">
+          <image src="{{uploadpath}}resource/{{res.phone}}" class="icon-15"></image>
+          <view class="txt-purple h6 margin-left-10">{{memberinfo.mobile}}</view>
+        </view>
+
+
+      </view> -->
+
+      <view class="h5 txt-black margin-top padding-20">{{info.problem}}</view>
+      <textarea disabled="{{yuyue_status=='B'}}" value="{{remarks}}" name="" id="" cols="30" rows="10" maxlength="150"
+        bindinput="bindcontent" class="margin-20 padding-20 radius-10 bg-gray h5 txt-black"></textarea>
+
+
+    </view>
+
+  </view>
+
+</view>
+
+<view class="">
+  <button class="bg-purple txt-white btn" hover-class="btn2" bindtap="yuyue"
+    wx:if="{{info.activity_status=='A'&&yuyue_status=='A'}}">预约</button>
+  <button class="bg-purple txt-white btn" hover-class="btn2" bindtap="quxiao"
+    wx:if="{{info.activity_status=='A'&&yuyue_status=='B'}}">已预约</button>
+  <button class="bg-purple txt-white btn" hover-class="btn2" wx:if="{{info.activity_status=='C'&&pg=='Y'}}">已结束</button>
+
+  <button class="bg-purple txt-white btn" hover-class="btn2" bindtap="topingjia"
+    wx:if="{{info.activity_status=='C'&&pg=='N'}}">评价</button>
+
+</view>
+
+<view class="height-70"></view>
+
+ 
+<view class="overlay"  wx:if="{{overlay2}}" bindtap="close"></view>
+<view class="tishi2"  wx:if="{{overlay2}}"  style="background-image:url({{uploadpath}}resource/{{res.huodong}});background-size:100% 100%">
+  <view class="padding-30 margin-top-20">
+    <view class="txt-white txt-bold text-center">请对该活动作出评价</view>
+  </view>
+  <view class="flex-row   margin-top">
+    <view class="flex-2"></view>
+    <view class="text-center" bindtap="bindcheck" id="A">
+      <view class="" style="height:170rpx;width:170rpx">
+        <image src="{{uploadpath}}resource/{{checking=='A'?res.chengon3_1:res.chengon3}}"
+          class="{{checking=='A'?'fenshu2':'fenshu'}}"></image>
+      </view>
+
+      <view class="txt-white f30 margin-top-20">有待改进</view>
+      <image src="{{uploadpath}}resource/{{res.sanjiao}}" wx:if="{{checking=='A'}}" class="sanjiao margin-top-30">
+      </image>
+    </view>
+    <view class="flex-1"></view>
+
+    <view class="text-center" bindtap="bindcheck" id="B">
+      <view class="" style="height:170rpx;width:170rpx">
+        <image src="{{uploadpath}}resource/{{checking=='B'?res.chengon2_1:res.chengon2}}"
+          class="{{checking=='B'?'fenshu2':'fenshu'}}"></image>
+      </view>
+      <view class="txt-white f30 margin-top-20">超赞</view>
+      <image src="{{uploadpath}}resource/{{res.sanjiao}}" wx:if="{{checking=='B'}}" class="sanjiao margin-top-30">
+      </image>
+
+    </view>
+    <view class="flex-1"></view>
+
+    <view class="text-center" bindtap="bindcheck" id="C">
+      <view class="" style="height:170rpx;width:170rpx">
+        <image src="{{uploadpath}}resource/{{checking=='C'?res.chengon_1:res.chengon}}"
+          class="{{checking=='C'?'fenshu2':'fenshu'}}"></image>
+      </view>
+      <view class="txt-white f30 margin-top-20">还可以</view>
+      <image src="{{uploadpath}}resource/{{res.sanjiao}}" wx:if="{{checking=='C'}}" class="sanjiao margin-top-30">
+      </image>
+    </view>
+    <view class="flex-2"></view>
+
+  </view>
+
+  <view class=" margin-top">
+    <input type="text" placeholder="请输入评价" bindinput="bindsummary" placeholder-class="txt-purple h5"
+      class="txt-purple text-left  margin-top-20"></input>
+  </view>
+
+  <view class="flex-row flex-column ">
+    <view class="bg-purple txt-white btn text-center" bindtap="pingjia">提交</view>
+  </view>
+
+</view>
+
+
+<view class="overlay" wx:if="{{overlay}}"></view>
+<view class="tishi" wx:if="{{overlay}}">
+
+  <view class="flex-row">
+    <view class="flex-1"></view>
+    <view class="midblock">
+      <view class="toptishi f-36 txt-bold text-center"
+        style="background-image:url({{uploadpath}}resource/{{res.tc}});background-size:100% 100%">提示</view>
+
+      <view class="text-center margin-top">
+        <image src="{{uploadpath}}resource/{{res.chengon}}" class="icon-168 "></image>
+      </view>
+
+      <view class="text-center margin-top-24">预约成功！</view>
+
+      <view class="flex-row " style="margin-top:64rpx">
+        <view class="flex-1"></view>
+        <view class="backhome  txt-bold" bindtap="confirm">确认</view>
+        <view class="flex-1"></view>
+      </view>
+
+
+    </view>
+    <view class="flex-1"></view>
+  </view>
+
+</view>

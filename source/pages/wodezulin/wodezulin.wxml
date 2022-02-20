@@ -1,0 +1,22 @@
+<!--pages/wodezulin/wodezulin.wxml-->
+
+<view class="padding-30 bg-white margin-40 radius-10" wx:for="{{list}}" wx:key='s'>
+
+   <view class="flex-row flex-center">
+      <view class="flex-1 h5">尺码</view> 
+      <view class="h5">{{item.zulin_status_name}}</view>
+   </view>
+
+   <view class="margin-top-20   bg-input padding-30">{{item.size_name}}</view>
+ 
+   <view class="h5 margin-top">租借时间</view> 
+   <view class="margin-top-20 h5  bg-input padding-30">{{item.start_date}}</view>
+
+   <view class="h5 margin-top">归还时间</view> 
+   <view class="margin-top-20  h5   bg-input padding-30">{{item.end_date}}</view>
+   
+   <view class="h5 margin-top" wx:if="{{item.huifu!=''}}">老师回复</view> 
+   <view class="margin-top-20  h5   bg-input padding-30" wx:if="{{item.huifu!=''}}">{{item.huifu}}</view>
+
+
+</view>

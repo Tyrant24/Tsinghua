@@ -1,0 +1,7 @@
+{
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "calendar": "/components/wx-calendar/index"
+},
+"enablePullDownRefresh":false
+}

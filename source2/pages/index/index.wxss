@@ -1,0 +1,11 @@
+Page{
+  background: #95bbe9;
+}
+
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;  
+  top: 10%;
+  left: 0;
+}

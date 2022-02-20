@@ -1,0 +1,15 @@
+/* pages/search/search.wxss */
+Page{
+  /* background: #e7ebf0; */
+}
+.search{
+  /* width: 100%; */
+  padding: 20rpx;
+  margin: 20rpx;
+background: #e9edf1;
+margin-top: 40rpx;
+border-radius: 20rpx;
+}
+.txt-gray{
+  color: #ABABAB;
+}

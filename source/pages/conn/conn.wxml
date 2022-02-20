@@ -1,0 +1,15 @@
+<!--pages/conn/conn.wxml-->
+<view class='bg-img ' >
+  <view class='we view'>请选择5个性格特点：</view>
+  <view class='flex-row flex-center flex-wrap view'>
+
+    <view class='flex-row flex-column view' wx:for-index='idx' wx:for="{{xinggelist}}" wx:key="ondex">
+      <image bindtap='qqq' data-id='{{idx}}' src='{{uploadpath}}xingge/{{item.images}}' class=' {{item.xz==true?"row-hover":"row"}} '></image>
+      <view class='ai' bindtap='onAon' hover-class="ai-hover">{{item.xingge}}</view>
+    </view>
+
+  </view>
+  <button class='bi' hover-class="bi-hover" bindtap='onBon' wx:if="{{asd==5}}">提交</button>
+  <view class='we view' style=''>我们命名的宝宝</view>
+  <view class='rt view   txt-bold'>{{instinfo.quantity}}</view>
+</view>

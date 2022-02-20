@@ -1,0 +1,77 @@
+Page {
+  background: #F1F5FA;
+}
+.photo{
+  width: 98rpx;
+  height: 98rpx;
+}
+
+.chooseblock{
+  /* width: 588rpx;  */
+  /* border-radius: 20rpx; */
+  padding: 0 50rpx 0 50rpx;
+}
+.left{
+  height: 74rpx;
+  line-height: 74rpx;
+  width: 294rpx;
+  border-radius: 20rpx 0 0 20rpx ;
+  color: #1b1f4c7e;
+}
+.right{
+  height: 74rpx;
+  line-height: 74rpx;
+  width: 294rpx;
+  border-radius: 0 20rpx 20rpx 0;
+  color: #1b1f4c7e;
+}
+.xuanzhong{ 
+border: 2rpx solid #DBC2DE;
+color: #84488B;
+background: #F8F2F9;
+}
+
+.fankui2{
+  width: 163rpx;
+height: 52rpx; 
+background: #FAF5FB;
+border-radius: 26rpx;
+border: 2rpx solid #DCCFDE;
+}
+
+.order {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin: 30rpx;
+}
+.fankui{
+  width: 163rpx;
+height: 52rpx; 
+background: #FAF5FB;
+border-radius: 26rpx;
+border: 2rpx solid #DCCFDE;
+}
+.btn {
+  width: 300rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  margin-top: 54rpx;
+  margin-bottom: 54rpx;
+  border-radius: 56rpx;
+}
+ 
+.bg-name{
+  background: #E9F7FF;
+}
+.bg-left{
+  background: #F0F4F9;
+}
+.txt-left{
+  color: #8E959C;
+}
+.notdata{
+  width: 400rpx;
+  height: 400rpx;
+}
+

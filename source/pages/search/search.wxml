@@ -1,0 +1,7 @@
+<!--pages/search/search.wxml-->
+<view class="search flex-row flex-center">
+
+<image src="{{uploadpath}}resource/{{res.search}}" class="icon-15"></image>
+<input class="txt-gray h5 margin-left-10" bindinput="" placeholder="请输入搜索内容"></input>
+
+</view>

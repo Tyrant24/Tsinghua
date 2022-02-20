@@ -1,0 +1,149 @@
+<!--pages/wodeyueyu/wodeyueyu.wxml-->
+<view class="flex-row flex-center padding-30 bg-white">
+  <view class="flex-1"></view>
+
+  <!-- <view class="h5 {{type=='A'?'block1':'block2'}}" bindtap="choose" id="A">未完成</view> -->
+  <view bindtap="choose" id="A" class="{{type=='A'?'block1':'block2'}}">
+    <view class="h5 ">待确认</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum1>0}}" class="icon-15 message"></image>
+  </view>
+
+  <view bindtap="choose" id="E" class="{{type=='E'?'block1':'block2'}}">
+    <view class="h5 ">进行中</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum1>0}}" class="icon-15 message"></image>
+  </view>
+ 
+  <view class="flex-1"></view>
+  <view bindtap="choose" id="B" class="{{type=='B'?'block1':'block2'}}">
+    <view class="h5 ">已完成</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum2>0}}" class="icon-15 message"></image>
+  </view>
+
+  <view class="flex-1"></view>
+
+  <view bindtap="choose" id="C" class="{{type=='C'?'block1':'block2'}}">
+    <view class="h5 ">已评估</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum3>0}}" class="icon-15 message"></image>
+  </view>
+  <view class="flex-1"></view>
+
+   <view bindtap="choose" id="D" class="{{type=='D'?'block1':'block2'}}">
+    <view class="h5 ">已取消</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum4>0}}" class="icon-15 message"></image>
+  </view>
+  <view class="flex-1"></view>
+</view>
+
+
+<view class="order" wx:for="{{list}}" wx:key='s'>
+
+  <view class="flex-row  ">
+    <view class="txt-primary txt-bold f-30 flex-1">咨询号:{{item.yuyueno}}</view>
+
+    <view class="flex-row flex-center fankui" wx:if="{{item.yuyue_status!='A'}}" bindtap="navtoPage" data-page="daoshifankui" data-param="id={{item.id}}">
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{res.dsfk}}" class="icon-15"></image>
+      <view class="h6 margin-left-10 txt-primary">导师反馈</view>
+      <view class="flex-1"></view>
+    </view>
+
+  </view>
+
+  <view class="flex-row flex-center margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.riqi}}" class="icon-15"></image>
+    <view class="padding-20 bg-gray margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.yuyueshijian}}</view>
+  </view>
+
+  <view class="flex-row flex-center margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.ming}}" class="icon-15"></image>
+    <view class="padding-20 bg-gray margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.name}}</view>
+  </view>
+
+  <view class="flex-row flex-center margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.dh}}" class="icon-15"></image>
+    <view class="padding-20 bg-gray margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.mobile}}</view>
+  </view>
+
+  <view class="flex-row flex-center margin-top-20">
+    <image src="{{uploadpath}}resource/{{res.yx}}" class="icon-15"></image>
+    <view class="padding-20 bg-gray margin-left-20 radius-10 h6 flex-1 txt-purple">{{item.email}}</view>
+  </view>
+
+
+  <!-- <view class="padding-20 bg-gray margin-top radius-10 h6 flex-1 txt-purple">{{item.qita}}</view> -->
+
+  
+  <view class="padding-20 bg-gray margin-top radius-10 h6 flex-1 txt-purple" wx:if="{{item.yuyue_status=='D'}}">取消原因：{{item.yuanyin}}</view>
+
+
+
+  <view class="flex-row" wx:if="{{item.yuyue_status=='A'||item.yuyue_status=='E'}}">
+    <view class="bg-gray txt-primary btn3 text-center h5" id="{{item.id}}" data-show="B" bindtap="bindshow">取消咨询</view>
+    <view class="flex-1"></view>
+    <view class="bg-purple txt-white btn3 text-center h5" id="{{item.id}}" bindtap="bindupdate">修改咨询信息</view>
+  </view>
+
+  <view class="flex-row  flex-column " wx:if="{{item.yuyue_status=='D'}}"> 
+    <view class="bg-purple txt-white btn text-center"  bindtap="navtoPage"
+      data-page="yuyuexiangqing" data-param="id={{item.id}}">查看详情</view> 
+  </view>
+
+
+  <view class="flex-row" wx:if="{{item.yuyue_status=='C'}}">
+    <view class="bg-purple txt-white btn3 text-center"  bindtap="navtoPage"
+      data-page="yuyuexiangqing" data-param="id={{item.id}}">查看详情</view> 
+
+    <view class="flex-1"></view>
+    <view class="bg-purple txt-white btn3 text-center"  bindtap="navtoPage"
+      data-page="pingguinfo" data-param="id={{item.id}}">查看评估</view> 
+  </view>
+
+ 
+
+
+  <view class="flex-row" wx:if="{{item.yuyue_status=='B'}}">
+    <view class="bg-gray txt-primary btn3 text-center h5" bindtap="navtoPage" data-page="yuyuexiangqing" data-param="id={{item.id}}">查看详情</view>
+    <view class="flex-1"></view>
+    <view class="bg-purple txt-white btn3 text-center h5"    bindtap="navtoPage" data-page="pinggu" data-param="id={{item.id}}">去评估</view>
+  </view>
+
+</view>
+
+<view class="text-center margin-top-60" wx:if="{{list.length==0}}">
+  <image src="{{uploadpath}}resource/{{res.not_tutor}}" class="notdata"></image>
+  <view class="txt-primary">暂无咨询</view>
+</view>
+<!-- wx:if="{{show=='B'}}" -->
+<view class="blackblock" wx:if="{{show=='B'}}" bindtap="bindshow" data-show="A" > 
+</view>
+
+<view class="whiteblock" wx:if="{{show=='B'}}">
+    <view class="padding-30">
+      <view class="text-center txt-bold ">请选择取消原因</view>
+
+      <view class=" flex-row flex-center margin-top-30 {{yuanyin=='A'?'chooseblock':'bgchoose'}}" bindtap="bindchoose" id="A">
+        <view class="f-30 flex-1">问题已解决</view>
+        <image src="{{uploadpath}}resource/{{res.notchoose}}" class="choose" wx:if="{{yuanyin!='A'}}" ></image>
+        <image src="{{uploadpath}}resource/{{res.choose}}" class="choose" wx:if="{{yuanyin=='A'}}"></image>
+      </view>
+
+      <view class="{{yuanyin=='B'?'chooseblock':'bgchoose'}} flex-row flex-center margin-top-30" bindtap="bindchoose" id="B">
+        <view class="f-30 flex-1">咨询已过期</view>
+        <image src="{{uploadpath}}resource/{{res.notchoose}}" class="choose" wx:if="{{yuanyin!='B'}}" ></image>
+        <image src="{{uploadpath}}resource/{{res.choose}}" class="choose" wx:if="{{yuanyin=='B'}}"></image>
+      </view>
+
+      <view class="{{yuanyin=='C'?'chooseblock':'bgchoose'}} flex-row flex-center margin-top-30" bindtap="bindchoose" id="C">
+        <view class="f-30 flex-1">其他</view>
+        <image src="{{uploadpath}}resource/{{res.notchoose}}" class="choose" wx:if="{{yuanyin!='C'}}" ></image>
+        <image src="{{uploadpath}}resource/{{res.choose}}" class="choose" wx:if="{{yuanyin=='C'}}"></image>
+      </view>
+
+      <view class="flex-row flex-column ">
+        <view class="bg-purple txt-white btn text-center" bindtap="bindcancel">提交</view>
+      </view>
+
+
+
+    </view>
+  </view>

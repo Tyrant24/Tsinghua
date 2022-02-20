@@ -1,0 +1,22 @@
+<!--pages/fankui/fankui.wxml-->
+<view class="margin-30 padding-30 bg-white radius-10">
+
+  <view class="flex-row flex-center">
+    <image src="{{uploadpath}}member/{{info.member_headimg}}" class="photo radius-50 margin-left-30" mode="aspectFill">
+    </image>
+    <view class="f-30 txt-bold margin-left-20">{{info.member_name}}</view>
+  </view>
+
+  <view class="h5 margin-top-30">咨询反馈</view>
+
+  <view class="padding-20 margin-top-20" style="border: 2rpx solid #DFE3EA;background:#F3F5F9">
+    <textarea name="" id="" bindinput="bindfankui" placeholder="请输入" auto-height='{{true}}' maxlength='-1' class="margin-left-10 h5" placeholder-class="h5" style="color:#9799B0;min-height:116rpx;width:100%"
+      placeholder-style="color:#9799B0"></textarea>
+  </view>
+
+
+</view>
+
+<view class="flex-row flex-column ">
+  <view class="bg-purple txt-white btn text-center" bindtap="bindsubmit">提交</view> 
+</view>

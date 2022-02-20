@@ -1,0 +1,157 @@
+<!--pages/pinggu/pinggu.wxml-->
+<view class="h5 padding bg-white" style="color:#B76666">说明: 下面的句子描述人们可能有的咨询经历。请你根据本次的咨询经历，对下列陈述进行评估。</view>
+
+<view class="padding-30 bg-white">
+
+  <view class="flex-row flex-center ">
+    <image src="{{uploadpath}}tutor/{{info.tutor_photo}}" class="photo radius-50  " mode="aspectFill">
+    </image>
+    <view class="margin-left-20">
+      <view class="f-30 txt-bold">咨询师：{{info.tutor_name}}</view>
+      <!-- <view class="flex-row flex-center margin-top-10">
+        <image src="{{uploadpath}}resource/{{res.mobile}}" class="icon-15" mode="aspectFill"></image>
+        <view class="margin-left-10 h6 txt-gray">{{info.tutor_account}}</view>
+      </view> -->
+    </view>
+  </view>
+
+<view class="flex-row flex-center margin-top"> 
+  <view class="h5">预约时间：</view>
+  <view class="h5 margin-left-30">{{info.yuyueshijian}}</view>
+</view>
+
+  <!-- <input bindinput="bind" id='A' value="" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input> -->
+
+  <!-- <view class="flex-row margin-top">
+    <view class="flex-1">
+      <view class="h5  ">咨询次数</view>
+      <input bindinput="bind" id="B" value="" type="number" placeholder="请填写" placeholder-class="txt-purple h5"
+        class="txt-purple padding-30 margin-top-20"></input>
+    </view>
+    <view style="width:24rpx"></view>
+    <view class="flex-1">
+      <view class="h5">日期</view>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="margin-top-20 flex-row bg_input padding-30">
+          <input value="{{date}}" type="text" placeholder="请选择" disabled placeholder-class="txt-purple h5"
+            class="txt-purple  flex-1"></input>
+          <image src="{{uploadpath}}resource/{{res.xiala}}" class="icon-15"></image>
+        </view>
+      </picker>
+    </view> -->
+
+  <!-- </view> -->
+ 
+</view>
+
+<view class="padding-30 bg-white  margin-top-20">
+
+  <view class="h5">1．我和咨询师对咨询目标的看法是一致的。</view>
+
+  <view class="radioblock margin-top-20">
+    <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}"  wx:for-index="idx" wx:key='s' bindtap="choosewenti"
+      id="{{item.type}}" data-idx="{{idx}}" data-type="A">
+      <image src="{{uploadpath}}resource/{{item.type==question1?res.xuan:res.weixuan}}" class="icon-15"></image>
+      <view class="h5 margin-left-10  {{item.type==question1?'txt-primary':''}}">{{item.name}}</view>
+    </view>
+  </view>
+
+</view>
+
+
+<view class="padding-30 bg-white  margin-top-20">
+
+  <view class="h5">2．咨询师所关注的，正式我希望解决的问题。</view>
+
+  <view class="radioblock margin-top-20">
+    <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' bindtap="choosewenti" data-type="B"
+      id="{{item.type}}">
+      <image src="{{uploadpath}}resource/{{item.type==question2?res.xuan:res.weixuan}}" class="icon-15"></image>
+      <view class="h5 margin-left-10  {{item.type==question2?'txt-primary':''}}">{{item.name}}</view>
+    </view>
+  </view>
+
+</view>
+
+
+<view class="padding-30 bg-white  margin-top-20">
+
+<view class="h5">3．我喜欢我的咨询师</view>
+
+<view class="radioblock margin-top-20">
+  <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' bindtap="choosewenti" data-type="C"
+    id="{{item.type}}">
+    <image src="{{uploadpath}}resource/{{item.type==question3?res.xuan:res.weixuan}}" class="icon-15"></image>
+    <view class="h5 margin-left-10  {{item.type==question3?'txt-primary':''}}">{{item.name}}</view>
+  </view>
+</view>
+
+</view>
+
+<view class="padding-30 bg-white  margin-top-20">
+
+<view class="h5">4．我主动与咨询师交流我对咨询的看法喝感受。</view>
+
+<view class="radioblock margin-top-20">
+  <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' bindtap="choosewenti" data-type="D"
+    id="{{item.type}}">
+    <image src="{{uploadpath}}resource/{{item.type==question4?res.xuan:res.weixuan}}" class="icon-15"></image>
+    <view class="h5 margin-left-10  {{item.type==question4?'txt-primary':''}}">{{item.name}}</view>
+  </view>
+</view>
+
+</view>
+
+<view class="padding-30 bg-white  margin-top-20">
+
+<view class="h5">5．和我的咨询师在一起，感觉很安全。</view>
+
+<view class="radioblock margin-top-20">
+  <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' bindtap="choosewenti" data-type="E"
+    id="{{item.type}}">
+    <image src="{{uploadpath}}resource/{{item.type==question5?res.xuan:res.weixuan}}" class="icon-15"></image>
+    <view class="h5 margin-left-10  {{item.type==question5?'txt-primary':''}}">{{item.name}}</view>
+  </view>
+</view>
+
+</view>
+
+<view class="padding-30 bg-white  margin-top-20">
+
+<view class="h5">6．会谈中，我和咨询师一起动脑子，想办法。</view>
+
+<view class="radioblock margin-top-20">
+  <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' bindtap="choosewenti" data-type="F"
+    id="{{item.type}}">
+    <image src="{{uploadpath}}resource/{{item.type==question6?res.xuan:res.weixuan}}" class="icon-15"></image>
+    <view class="h5 margin-left-10  {{item.type==question6?'txt-primary':''}}">{{item.name}}</view>
+  </view>
+</view>
+
+</view>
+
+
+<view class="padding-30 bg-white  margin-top-20">
+
+<view class="h5">7．我的咨询师能够接纳我哪怕是消极的想法和感受。</view>
+
+<view class="radioblock margin-top-20">
+  <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' bindtap="choosewenti" data-type="G"
+    id="{{item.type}}">
+    <image src="{{uploadpath}}resource/{{item.type==question7?res.xuan:res.weixuan}}" class="icon-15"></image>
+    <view class="h5 margin-left-10  {{item.type==question7?'txt-primary':''}}">{{item.name}}</view>
+  </view>
+</view>
+
+</view>
+
+<view class="h5 margin-top margin-left-30">本次咨询的综合打分是：（1-10分）</view>
+  <view class="  "  >
+    <input bindinput="bind" id='A' value="" type="number"  placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30  "></input>
+  </view>
+  
+<view class="flex-row flex-column ">
+  <view class="bg-purple txt-white btn text-center" bindtap="submit">提交</view> 
+</view>

@@ -1,0 +1,35 @@
+/* pages/login/login.wxss */
+.allpage{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+.block{
+  position: absolute;
+  width: 100%;
+  bottom: 20%;
+  z-index: 12;
+}
+.under{ 
+  border-radius: 20rpx;
+  background: white;
+}
+input{
+  border-bottom: 2rpx solid #f0f0f0;
+  padding-bottom: 20rpx;
+}
+.icon{
+  width: 38rpx;
+  height: 38rpx;
+}
+.logo{
+  width: 90%;
+  height: 278rpx;
+}
+.topblock{
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  z-index: 12;
+}

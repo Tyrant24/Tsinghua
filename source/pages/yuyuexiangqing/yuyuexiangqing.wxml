@@ -1,0 +1,343 @@
+<!--pages/yuyuexiangqing/yuyuexiangqing.wxml-->
+<!--pages/yuyueinfo/yuyueinfo.wxml-->
+<view class="padding-30 bg-white">
+
+  <view class="h5 margin-top">姓名</view>
+  <input disabled bindinput="bind"  id='A' value="{{memberinfo.name}}" type="text" placeholder="请填写"
+    placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="flex-row margin-top">
+    <view class="flex-1">
+      <view class="h5  ">性别</view>
+      <input disabled bindinput="bind"  value="{{memberinfo.gender_name}}" type="text" placeholder="请填写"
+        placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-20"></input>
+    </view>
+    <view style="width:24rpx"></view>
+    <view class="flex-1">
+      <view class="h5   ">出生年月</view>
+      <input disabled value="{{memberinfo.birthday}}" type="text"  placeholder="请选择" placeholder-class="txt-purple h5"
+        class="txt-purple padding-30 margin-top-20"></input>
+    </view>
+
+  </view>
+
+  <view class="h5">民族</view>
+  <input disabled bindinput="bind" id='B' value="{{minzu}}"  type="text" placeholder="请填写"
+    placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5">生源地</view>
+  <input disabled bindinput="bind" id='C' value="{{shengyuandi}}"  type="text" placeholder="请填写"
+    placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5">专业</view>
+  <input disabled bindinput="bind"  id='D'  value="{{zhuanye}}" type="text" placeholder="请填写"
+    placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">原就读学校</view>
+  <input disabled bindinput="bind" id='E' value="{{info.yuanxuexiao}}"  type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">原专业</view>
+  <input disabled bindinput="bind" id='F' value="{{info.yuanzhuanye}}"  type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">电子邮件</view>
+  <input disabled bindinput="bind" id='G'  value="{{memberinfo.email}}" type="text" placeholder="请填写"
+    placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="  margin-top">
+    <view class="flex-1">
+      <view class="h5  ">联系电话</view>
+      <input disabled bindinput="bind" id="H" value="{{info.mobile}}"  type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+        class="txt-purple padding-30 margin-top-20"></input>
+    </view>
+
+  </view>
+
+  <view class=" margin-top">
+    <view class="h5   ">婚姻状况</view>
+    <!-- <picker range="{{hunyinlist}}" range-key="name" bindchange="bindhunyin">
+      <input disabled value="{{hunyin_name}}" type="text"  placeholder="请选择" placeholder-class="txt-purple h5"
+        class="txt-purple padding-30 margin-top-20"></input>
+    </picker> -->
+    <view class=" margin-top-20">
+
+      <view class=" flex-row flex-center ">
+        <image src="{{uploadpath}}resource/{{info.hunyin=='A'?res.choose:res.notchoose}}" class="icon-15"  ></image>
+        <view class="h5 padding-left-10"  >单身</view>
+      </view>
+
+      <view class=" flex-row flex-center margin-top-10">
+        <image src="{{uploadpath}}resource/{{info.hunyin=='B'?res.choose:res.notchoose}}" class="icon-15 "
+          ></image>
+        <view class="h5 padding-left-10"  >恋爱</view>
+      </view>
+
+      <view class=" flex-row flex-center margin-top-10">
+        <image src="{{uploadpath}}resource/{{info.hunyin=='C'?res.choose:res.notchoose}}" class="icon-15 "
+         ></image>
+        <view class="h5 padding-left-10" >结婚</view>
+      </view>
+
+      <view class=" flex-row flex-center margin-top-10">
+        <image src="{{uploadpath}}resource/{{info.hunyin=='D'?res.choose:res.notchoose}}" class="icon-15 "
+          ></image>
+        <view class="h5 padding-left-10"  >其他</view>
+      </view>
+
+      <input disabled bindinput="bind" wx:if="{{info.hunyin=='D'}}"  type="text" placeholder="(选填) 其他状况"
+        placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-10"></input>
+
+
+    </view>
+  </view>
+
+  <view class=" ">
+    <view class="h5  margin-top ">健康状况</view>
+    <!-- <picker range="{{hunyinlist}}" range-key="name" bindchange="bindhunyin">
+    <input disabled value="{{hunyin_name}}" type="text"  placeholder="请选择" placeholder-class="txt-purple h5"
+      class="txt-purple padding-30 margin-top-20"></input>
+  </picker> -->
+
+    <view class="flex-row flex-center margin-top">
+      <image src="{{uploadpath}}resource/{{info.jiankang=='A'?res.choose:res.notchoose}}" class="icon-15"  ></image>
+      <view class="h5 padding-left-10" bindtap="bindradio" id="F" data-type="A">良好</view>
+
+      <image src="{{uploadpath}}resource/{{info.jiankang=='B'?res.choose:res.notchoose}}" class="icon-15 margin-left-40"
+         ></image>
+      <view class="h5 padding-left-10"  >长期患有某种疾病</view>
+    </view>
+
+    <input disabled bindinput="bind" wx:if="{{info.jiankang=='B'}}"  value="{{info.jiankang_text}}" type="text"
+      placeholder="(选填) 何种病症" placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-10"></input>
+
+  </view>
+
+  <!-- <view class=" ">
+  <view class="h5 margin-top">病症</view>
+  <input disabled bindinput="bind" id='I' value="" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+</view> -->
+
+  <view class=" ">
+    <view class="h5 margin-top">父亲职业</view>
+    <input disabled bindinput="bind" id='I' value="{{info.fuqinzhiye}}" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+      class="txt-purple padding-30 margin-top-20"></input>
+  </view>
+
+  <view class=" ">
+    <view class="h5 margin-top">母亲职业</view>
+    <input disabled bindinput="bind" id='J' value="{{info.muqinzhiye}}" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+      class="txt-purple padding-30 margin-top-20"></input>
+  </view>
+
+  <view class="  margin-top">
+    <view class=" ">
+      <view class="h5   ">是否有兄弟姐妹</view>
+
+      <view class="flex-row flex-center margin-top">
+        <image src="{{uploadpath}}resource/{{info.xiongdi_value=='Y'?res.choose:res.notchoose}}" class="icon-15"></image>
+        <view class="h5 padding-left-10">是</view>
+
+        <image src="{{uploadpath}}resource/{{info.xiongdi_value=='N'?res.choose:res.notchoose}}"
+          class="icon-15 margin-left-40"></image>
+        <view class="h5 padding-left-10">否</view>
+      </view>
+
+    </view>
+
+  </view>
+
+
+  <view class=" ">
+    <view class="h5 margin-top">年龄</view>
+    <input disabled value="{{age}}"  id='K' type="number" placeholder="请填写" placeholder-class="txt-purple h5"
+      class="txt-purple padding-30 margin-top-20"></input>
+  </view>
+
+  <view class="flex-row margin-top">
+    <view class="flex-1">
+      <view class="h5  ">职业</view>
+      <input disabled type="text" id='L' value="{{info.zhiye}}" placeholder="请填写" bindinput="bind" placeholder-class="txt-purple h5"
+        class="txt-purple padding-30 margin-top-20"></input>
+    </view>
+
+  </view>
+
+
+  <view class="  margin-top">
+    <view class=" ">
+      <view class="h5   ">以前是否接受过职业咨询</view>
+
+      <view class="flex-row flex-center margin-top">
+        <image src="{{uploadpath}}resource/{{info.zhiyezixun_value=='Y'?res.choose:res.notchoose}}" class="icon-15"
+         ></image>
+        <view class="h5 padding-left-10">是</view>
+
+        <image src="{{uploadpath}}resource/{{info.zhiyezixun_value=='N'?res.choose:res.notchoose}}" class="icon-15 margin-left-40"
+        ></image>
+        <view class="h5 padding-left-10" >否</view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="  margin-top">
+    <view class=" ">
+      <view class="h5  flex-1">以前是否接受过心理咨询</view>
+
+      <view class="flex-row flex-center margin-top">
+        <image src="{{uploadpath}}resource/{{info.xinlizixun_value=='Y'?res.choose:res.notchoose}}" class="icon-15"
+          ></image>
+        <view class="h5 padding-left-10"  >是</view>
+
+        <image src="{{uploadpath}}resource/{{info.xinlizixun_value=='N'?res.choose:res.notchoose}}" class="icon-15 margin-left-40"
+           ></image>
+        <view class="h5 padding-left-10"  >否</view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="  margin-top">
+    <view class="">
+      <view class="h5  flex-1">目前是否在接受其他咨询</view>
+
+      <view class="flex-row flex-center margin-top">
+        <image src="{{uploadpath}}resource/{{info.qitazixun_value=='Y'?res.choose:res.notchoose}}" class="icon-15"
+          bindtap="bindradio" id="D" data-type="Y"></image>
+        <view class="h5 padding-left-10" bindtap="bindradio" id="D" data-type="Y">是</view>
+
+        <image src="{{uploadpath}}resource/{{info.qitazixun_value=='N'?res.choose:res.notchoose}}" class="icon-15 margin-left-40"
+          bindtap="bindradio" id="D" data-type="N"></image>
+        <view class="h5 padding-left-10" bindtap="bindradio" id="D" data-type="N">否</view>
+      </view>
+
+      <input disabled   wx:if="{{info.qitazixun_value=='Y'}}"   value="{{info.qitazixun_text}}" type="text" placeholder="(选填) 请填写其他咨询"
+        placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-10"></input>
+
+    </view>
+
+  </view>
+
+ 
+ 
+
+
+  <view class=" margin-top">
+
+
+    <view class=" ">
+      <view class="h5 ">是否有工作经验</view>
+
+      <view class=" margin-top-20">
+
+        <view class=" flex-row flex-center ">
+          <image src="{{uploadpath}}resource/{{info.gongzuo=='A'?res.choose:res.notchoose}}" class="icon-15"
+          ></image>
+          <view class="h5 padding-left-10" >有全职工作经验</view>
+        </view>
+
+        <view class=" flex-row flex-center margin-top-10">
+          <image src="{{uploadpath}}resource/{{info.gongzuo=='B'?res.choose:res.notchoose}}" class="icon-15 "
+          ></image>
+          <view class="h5 padding-left-10" >有兼职工作经验或做过义工</view>
+        </view>
+
+        <view class=" flex-row flex-center margin-top-10">
+          <image src="{{uploadpath}}resource/{{info.gongzuo=='C'?res.choose:res.notchoose}}" class="icon-15 "
+          ></image>
+          <view class="h5 padding-left-10" >没有任何工作经验</view>
+        </view>
+
+        <input disabled   wx:if="{{info.gongzuo=='A'}}"   value="{{info.gongzuo_text1}}" type="text" placeholder="(选填) 工作年限"
+          placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-10"></input>
+
+        <input disabled   wx:if="{{info.gongzuo=='B'}}" value="{{info.gongzuo_text2}}" type="text" placeholder="(选填) 累积工作时间"
+          placeholder-class="txt-purple h5" class="txt-purple padding-30 margin-top-10"></input>
+
+      </view>
+
+ 
+
+    </view>
+ 
+
+
+  </view>
+ 
+
+</view>
+
+
+
+<view class="padding-30 margin-top-30  bg-white">
+
+  <view class="h5">我们可以通过很多渠道了解与职业生涯有关的信息，最近
+    一个月，你曾使用以下哪些方法：（可多选）</view>
+
+  <view class="radioblock margin-top-20">
+    <view class="flex-row flex-center margin-top-30" wx:for="{{fangfalist}}" wx:key='f' wx:for-index="index"
+      bindtap="choosefangfa" id="{{index}}">
+      <image src="{{uploadpath}}resource/{{item.check?res.xuan:res.weixuan}}" class="icon-15"></image>
+      <view class="h5 margin-left-10  {{item.check?'txt-primary':''}}">{{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- <view class="h5 margin-top">此次来最主要想解决的问题是</view> -->
+
+  <view class="h5 margin-top">此次来最主要想解决的问题是</view>
+  <input disabled  value="{{info.wenti}}" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <!-- <view class="radioblock margin-top-20">
+  <view class="flex-row flex-center margin-top-30" wx:for="{{wentilist}}" wx:key='s' wx:for-index="index"
+    bindtap="choosewenti" id="{{index}}">
+    <image src="{{uploadpath}}resource/{{item.check?res.xuan:res.weixuan}}" class="icon-15"></image>
+    <view class="h5 margin-left-10  {{item.check?'txt-primary':''}}">{{item.name}}</view>
+  </view>
+</view> -->
+
+  <!-- <view class="h5 margin-top">其他</view>
+  <input disabled  value="{{info.qita}}" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">问题详细描述</view>
+  <input disabled  value="{{info.wentimiaoshu}}" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input> -->
+
+  <view class="h5 margin-top">你期望职业生涯咨询帮助达到什么样的效果？</view>
+  <input disabled value="{{info.jingli}}" type="text" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">期望的咨询次数约为</view>
+  <input disabled value="{{info.zixunshu}}" type="number" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">预约咨询日期及时间</view>
+  <input disabled value="{{info.yuyueshijian}}"  type="number" placeholder="请填写"  placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">紧急联系人姓名</view>
+  <input disabled value="{{info.jinjiren}}" type="number" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="h5 margin-top">紧急联系人电话</view>
+  <input disabled  value="{{info.jinjidianhua}}" type="number" placeholder="请填写" placeholder-class="txt-purple h5"
+    class="txt-purple padding-30 margin-top-20"></input>
+
+  <view class="flex-row flex-center margin-top"  >
+    <view class="h5 ">附件</view>
+    <image src="{{uploadpath}}resource/{{res.iconfile}}"  bindtap="open" class="uploadicon margin-left-20">
+    </image> 
+    <view class="padding-left-10  h5 txt-blue">{{info.filename}}</view>
+    <view class="padding-left-10  h5 txt-blue"  bindtap="open">查看</view>
+  </view>
+ 
+</view>
+
+ 
+
+ 

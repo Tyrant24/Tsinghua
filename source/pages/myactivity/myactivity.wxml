@@ -1,0 +1,88 @@
+<!--pages/myactivity/myactivity.wxml-->
+<view class="flex-row flex-center padding-30 bg-white">
+  <view class="flex-1"></view>
+ 
+  <view bindtap="choose" id="A" class="{{type=='A'?'block1':'block2'}}">
+    <view class="h5 ">报名中</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum1>0}}" class="icon-15 message"></image>
+  </view>
+
+  <view class="flex-1"></view>
+  <view bindtap="choose" id="B" class="{{type=='B'?'block1':'block2'}}">
+    <view class="h5 ">进行中</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum2>0}}" class="icon-15 message"></image>
+  </view>
+
+  <view class="flex-1"></view>
+
+  <view bindtap="choose" id="C" class="{{type=='C'?'block1':'block2'}}">
+    <view class="h5 ">已结束</view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxi}}" wx:if="{{messagenum3>0}}" class="icon-15 message"></image>
+  </view>
+  <view class="flex-1"></view>
+</view>
+
+
+
+<view class="block" wx:if="{{type=='A'&&item.activity_activity_status=='A'}}" wx:for="{{list}}" wx:key='s'
+  bindtap="navtoPage" data-page="activityinfo" data-param='id={{item.activity_id}}'>
+  <image src="{{uploadpath}}activity/{{item.activity_img1}}" class="img"></image>
+
+  <view class="padding-20">
+    <view class="txt-bold f-30   chaochu">{{item.activity_id_name}}</view>
+    <view class="h6 txt-purple margin-top-10">{{item.activity_end_time}}报名截止</view>
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.start_time}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-red">{{item.activity_activity_time}}</view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.address}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-purple">{{item.activity_address}}</view>
+    </view>
+
+
+  </view>
+</view>
+
+<view class="block" wx:if="{{type=='B'&&item.activity_activity_status=='B'}}" wx:for="{{list}}" wx:key='s'
+  bindtap="navtoPage" data-page="activityinfo" data-param='id={{item.activity_id}}'>
+  <image src="{{uploadpath}}activity/{{item.activity_img1}}" class="img"></image>
+
+  <view class="padding-20">
+    <view class="txt-bold f-30   chaochu">{{item.activity_id_name}}</view>
+    <view class="h6 txt-purple margin-top-10">{{item.activity_end_time}}报名截止</view>
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.start_time}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-red">{{item.activity_activity_time}}</view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.address}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-purple">{{item.activity_address}}</view>
+    </view>
+
+
+  </view>
+</view>
+
+<view class="block" wx:if="{{type=='C'&&item.activity_activity_status=='C'}}" wx:for="{{list}}" wx:key='s'
+  bindtap="navtoPage" data-page="activityinfo" data-param='id={{item.activity_id}}'>
+  <image src="{{uploadpath}}activity/{{item.activity_img1}}" class="img"></image>
+
+  <view class="padding-20">
+    <view class="txt-bold f-30   chaochu">{{item.activity_id_name}}</view>
+    <view class="h6 txt-purple margin-top-10">{{item.activity_end_time}}报名截止</view>
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.start_time}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-red">{{item.activity_activity_time}}</view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-20">
+      <image src="{{uploadpath}}resource/{{res.address}}" class="icon"></image>
+      <view class="padding-20 bg-gray margin-left-10 radius-10 h6 flex-1 txt-purple">{{item.activity_address}}</view>
+    </view>
+
+
+  </view>
+</view>

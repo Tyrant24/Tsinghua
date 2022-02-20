@@ -1,0 +1,21 @@
+.ss{
+  text-align: center;
+  font-size:17px;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+.bi{
+ height:108rpx;
+ width: 350rpx;
+ color: white;
+ background-color: rgb(125, 209, 125);
+}
+.bi-hover{
+  background-color: rgb(65, 181, 235);
+}
+.sd{
+  font-size: 21px;
+  color: burlywood;
+  text-align: center;
+  margin-top:20rpx; 
+}

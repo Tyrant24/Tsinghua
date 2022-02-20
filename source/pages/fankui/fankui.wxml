@@ -1,0 +1,29 @@
+<!--pages/fankui/fankui.wxml-->
+<view class="padding-30 bg-white">
+
+  <view class="  ">
+    <view class="h5  ">您的联系方式：</view>
+    <input type="text" style="background:#F1F5FA;" placeholder="请输入联系方式" placeholder-class="txt-purple h5" class="h5 padding-20  margin-top-20" value="{{lianxi}}" bindinput="bindlianxi"></input>
+  </view>
+
+  <view class="margin-top-20  ">
+    <view class="h5  ">您的建议</view>
+
+    <textarea  style="background:#F1F5FA;"placeholder="请输入您的宝贵意见" placeholder-class="txt-purple h5" class="text h5 margin-top-10 padding-20" value="{{jianyi}}"
+      bindinput="bindjianyi"></textarea>
+  </view>
+
+  <view style="height:100rpx"></view>
+
+</view>
+
+
+<view style="height:200rpx"></view>
+
+<!-- <view class=" underblock bg-white padding-top-20">
+  <view class="yaoqing margin-20 h4-5" bindtap="submit">提交反馈</view>
+</view> -->
+
+<view class="margin">
+  <button class="bg-purple txt-white btn" hover-class="btn2" bindtap="submit"  >提交</button> 
+</view>

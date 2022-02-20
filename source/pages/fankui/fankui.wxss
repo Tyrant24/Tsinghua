@@ -1,0 +1,17 @@
+/* pages/fankui/fankui.wxss */
+Page{
+  background: #F1F5FA;
+}
+.text{ 
+  height: 248rpx;
+  width: 94%;
+  background: #F5F5F5;
+  border-radius: 10rpx;
+  }
+  .btn {
+    width: 570rpx;
+    height: 98rpx;
+    line-height: 98rpx;
+    margin-top: 84rpx;
+    border-radius: 56rpx;
+  }

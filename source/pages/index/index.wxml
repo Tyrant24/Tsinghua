@@ -1,0 +1,12 @@
+<!--index.wxml-->
+ 
+ <button bindtap="click">点击</button>
+
+ <view>{{tempFilePaths.name}}</view>
+ <view>{{tempFilePaths.path}}</view>
+ <view>{{tempFilePaths.size}}</view>
+ <view>{{tempFilePaths.type}}</view>
+
+ 
+ <button bindtap="open">打开</button> 
+ <button bindtap="upload">上传</button>
